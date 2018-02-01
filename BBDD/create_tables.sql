@@ -4,7 +4,14 @@ use bdoMarket;
 CREATE TABLE IF NOT EXISTS objeto(
   id int unsigned AUTO_INCREMENT PRIMARY key,
   nombre varchar(40)
+  id_precio int unsigned,
+  index(id_precio),
+  foreign key(id_precio) reference precio (id) on delete cascade on update no action
+);
 
+CREATE TABLE IF NOT EXISTS proceso(
+  id int unsigned AUTO_INCREMENT PRIMARY key,
+  nombre varchar(40)
 );
 
 CREATE TABLE IF NOT EXISTS receta(
@@ -12,7 +19,10 @@ CREATE TABLE IF NOT EXISTS receta(
   nota varchar(300),
   resultado int unsigned,
   index(resultado),
-  foreign key(resultado) reference objeto (id) on delete cascade on update no action
+  foreign key(resultado) reference objeto (id) on delete cascade on update no action,
+  id_proceso int unsigned,
+  index(id_proceso),
+  foreign key(id_proceso) reference proceso (id) on delete cascade on update no action
 );
 
 CREATE TABLE IF NOT EXISTS ingrediente(
