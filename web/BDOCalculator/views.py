@@ -9,4 +9,4 @@ from flask import url_for
 
 @app.route('/')
 def index():
-    return render_template('_views/index.html')
+    return render_template('_views/objeto.html')

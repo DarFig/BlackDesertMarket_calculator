@@ -1,13 +1,50 @@
 {% extends "_layouts/base.html" %}
 
 {% block title %}
-{{Objeto.nombre}} | {{ super() }}
+asdas | {{ super() }}
 {% endblock %}
 
 
 {% block content %}
 
 <div class="Cuarta container">
+  <div class="row">
 
+    <div class="col-6">
+      <div class="Septima jumbotron ">
+        <h4 class="panel-heading">Precios</h4>
+        <form named="precios" class="" action="" method="post">
+          <div class="form-group">
+
+          </div>
+          <div class="form-group">
+
+          </div>
+          <div class="row btn btn-block center-block">
+            <div class="col-2">
+                <button id="actualizaprecio" class="btn btn-dark" type="submit" name="actualizaprecio">Actualizar</button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="Septima jumbotron">
+        <h4 class="panel-heading">Recetas</h4>
+        <form named="recetas" class="" action="" method="post">
+          <div class="row btn btn-block center-block">
+            <div class="col-2">
+                <button id="actualizaprecio" class="btn btn-dark" type="submit" name="actualizaprecio">Actualizar</button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+  </div>
 </div>
 {% endblock %}
