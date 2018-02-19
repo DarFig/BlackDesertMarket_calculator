@@ -7,7 +7,7 @@ import os
 app = Flask(__name__) #create the application instance
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://bdocalculator:bdocalculator@localhost/bdocalculator"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://bdocalculator:bdocalculator@localhost/bdocalculator"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 

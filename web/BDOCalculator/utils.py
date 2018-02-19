@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from model import *
+from models import *
 
 def get_object_by_name(name):
     objt = Objeto.query.filter(Objeto.nombre == name).first()
@@ -25,3 +25,7 @@ def get_recetas_por_Objeto(obj_id):
 def get_ingredientes_por_receta(receta_id):
     ingredientes = Ingrediente.query.filter(Ingrediente.receta == receta_id).all()
     return ingredientes
+
+def get_objetosprecio():
+    objetos = Objeto.query.join(Precio).add_columns(Objeto.nombre, Precio.minimo, Precio.maximo, Precio.precio1, Precio.precio2, Precio.precio3, Precio.precio4).filter(Precio.id == Objeto.id_precio).all()
+    return objetos

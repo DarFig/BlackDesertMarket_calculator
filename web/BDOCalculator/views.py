@@ -7,6 +7,10 @@ from functools import wraps
 from flask import redirect
 from flask import url_for
 
+from utils import *
+
 @app.route('/')
+@app.route('/', methods=['GET'])
 def index():
-    return render_template('_views/objeto.html')
+    lista = get_objetosprecio()
+    return render_template('_views/index.html', objetos=lista)

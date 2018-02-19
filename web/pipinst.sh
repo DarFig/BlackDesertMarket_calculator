@@ -8,3 +8,5 @@ pip install Flask-MySQLdb
 pip install flask_login
 pip install Flask-WTF
 pip install WTForms
+pip install pymysql
+sudo apt-get install python-mysqldb

@@ -34,30 +34,14 @@ Index | {{ super() }}
   </div>
 
   <div class="Margen-alrededor1" data-spy="scroll" data-target="#list-example" data-offset="0">
+    {% for objeto in objetos %}
     <div class=" Sexta Margen-alrededor d-flex flex-row">
-      <div class="p-2 border border-dark"><a class=" Sexta list-group-item " href="">Item 1 </a></div>
-      <div class="Max p-2 border border-dark">precio max</div>
-      <div class="Min p-2 border border-dark">precio min</div>
+      <div class="p-2 border border-dark"><a class=" Sexta list-group-item " href="">{{objeto.nombre}} </a></div>
+      <div class="Max p-2 border border-dark">{{objeto.maximo}}</div>
+      <div class="Min p-2 border border-dark">{{objeto.minimo}}</div>
       <div class="Letter p-2 border border-dark"># recetas</div>
     </div>
-    <div class=" Sexta Margen-alrededor d-flex flex-row">
-      <div class="p-2 border border-dark"><a class=" Sexta list-group-item " href="">Item 1 </a></div>
-      <div class="Max p-2 border border-dark">precio max</div>
-      <div class="Min p-2 border border-dark">precio min</div>
-      <div class="Letter p-2 border border-dark"># recetas</div>
-    </div>
-    <div class=" Sexta Margen-alrededor d-flex flex-row">
-      <div class="p-2 border border-dark"><a class=" Sexta list-group-item " href="">Item 1 </a></div>
-      <div class="Max p-2 border border-dark">precio max</div>
-      <div class="Min p-2 border border-dark">precio min</div>
-      <div class="Letter p-2 border border-dark"># recetas</div>
-    </div>
-    <div class=" Sexta Margen-alrededor d-flex flex-row">
-      <div class="p-2 border border-dark"><a class=" Sexta list-group-item " href="">Item 1 </a></div>
-      <div class="Max p-2 border border-dark">precio max</div>
-      <div class="Min p-2 border border-dark">precio min</div>
-      <div class="Letter p-2 border border-dark"># recetas</div>
-    </div>
+    {% endfor %}
   </div>
   <div class="Margen-alrededor1">
     <h5>.</h5>
