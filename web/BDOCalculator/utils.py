@@ -27,5 +27,5 @@ def get_ingredientes_por_receta(receta_id):
     return ingredientes
 
 def get_objetosprecio():
-    objetos = Objeto.query.join(Precio).add_columns(Objeto.nombre, Precio.minimo, Precio.maximo, Precio.precio1, Precio.precio2, Precio.precio3, Precio.precio4).filter(Precio.id == Objeto.id_precio).all()
+    objetos = Objeto.query.join(Precio).add_columns(Objeto.id,Objeto.nombre, Precio.minimo, Precio.maximo, Precio.precio1, Precio.precio2, Precio.precio3, Precio.precio4).filter(Precio.id == Objeto.id_precio).all()
     return objetos
