@@ -10,16 +10,45 @@
 <div class="Cuarta container">
   <div class="row">
 
-    <div class="col-6">
+    <div class="col-md-6">
       <div class="Septima jumbotron ">
         <h4 class="panel-heading">Precios</h4>
         <form named="precios" class="" action="" method="post">
-          <div class="form-group">
 
-          </div>
-          <div class="form-group">
+          <ul class="list-group border border-dark">
+            <li class="list-group-item Novena">Máximo: <span class="Max">{{precio.maximo}}</span>
+              <div class="form-group">
 
-          </div>
+              </div>
+            </li>
+            <li class="list-group-item Novena">Mínimo: <span class="Min">{{precio.minimo}}</span>
+              <div class="form-group">
+
+              </div>
+            </li>
+            <li class="list-group-item Novena">Precio1: <span class="Medio">{{precio.precio1}}</span>
+              <div class="form-group">
+
+              </div>
+            </li>
+            <li class="list-group-item Novena">Precio2: <span class="Medio">{{precio.precio2}}</span>
+              <div class="form-group">
+
+              </div>
+            </li>
+            <li class="list-group-item Novena">Precio3: <span class="Medio">{{precio.precio3}}</span>
+              <div class="form-group">
+
+              </div>
+            </li>
+            <li class="list-group-item Novena">Precio4: <span class="Medio">{{precio.precio4}}</span>
+              <div class="form-group">
+
+              </div>
+            </li>
+          </ul>
+
+
           <div class="row btn btn-block center-block">
             <div class="col-2">
                 <button id="actualizaprecio" class="btn btn-dark" type="submit" name="actualizaprecio">Actualizar</button>
@@ -30,7 +59,7 @@
       </div>
     </div>
 
-    <div class="col-6">
+    <div class="col-md-6">
       <div class="Septima jumbotron">
         <h4 class="panel-heading">Recetas</h4>
         <form named="recetas" class="" action="" method="post">
