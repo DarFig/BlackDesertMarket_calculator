@@ -1,0 +1,42 @@
+{% extends "_layouts/base.html" %}
+
+{% block title %}
+{{receta.id}} | {{ super() }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="Cuarta container">
+  <div class="row">
+
+    <div class="col-12">
+      <div class="Septima jumbotron">
+        <div class="row">
+          <h3 class="col-6 border border-dark">Ingredientes</h3>
+
+
+        </div>
+        <form named="recetas" class="" action="" method="post">
+          <div class="row">
+            <h6 class="col-6 panel-heading border border-dark">Nombre</h6>
+            <h6 class="col-3 panel-heading border border-dark">cantidad</h6>
+            <h6 class="col-3 panel-heading border border-dark">comprar</h6>
+          </div>
+
+
+          <div class="row btn btn-block center-block">
+            <div class="col-2">
+                <button id="calcular" class="btn btn-dark" type="submit" name="calcular">Calcular</button>
+            </div>
+
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+
+  </div>
+</div>
+{% endblock %}

@@ -12,7 +12,7 @@
 
     <div class="col-md-6">
       <div class="Septima jumbotron ">
-        <h4 class="panel-heading">Precios</h4>
+        <h4 class="panel-heading border border-dark">Precios</h4>
         <form named="precios" class="" action="" method="post">
 
           <ul class="list-group border border-dark">
@@ -61,11 +61,31 @@
 
     <div class="col-md-6">
       <div class="Septima jumbotron">
-        <h4 class="panel-heading">Recetas</h4>
+        <!--<div class="row">-->
+          <h4 class="panel-heading border border-dark">Recetas</h4>
+          <!--<h4 class="col-6 panel-heading border border-dark">Value Pack</h4>
+          -->
+        <!--</div>-->
+        <!--
+        <div class="row">
+          <h4 class="col-6 panel-heading "></h4>
+
+          <h6 class="col-3 panel-heading border border-dark">Si</h6>
+          <h6 class="col-3 panel-heading border border-dark">No</h6>
+        </div>
+        -->
+
         <form named="recetas" class="" action="" method="post">
+          <ul class="list-group border border-dark">
+            {% for receta in recetas %}
+            <li class="list-group-item Novena">Receta: <a class="Medio" href="{{ url_for('recetadetails',  pk=receta.id) }}">ID: {{receta.id}}</a>
+
+            </li>
+            {% endfor %}
+          </ul>
           <div class="row btn btn-block center-block">
             <div class="col-2">
-                <button id="actualizaprecio" class="btn btn-dark" type="submit" name="actualizaprecio">Actualizar</button>
+                <button id="nuevaReceta" class="btn btn-dark" type="submit" name="nuevaReceta">Nueva</button>
             </div>
 
           </div>

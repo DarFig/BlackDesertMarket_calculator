@@ -11,6 +11,7 @@ from flask import url_for
 
 
 from controladores.objeto import *
+from controladores.receta import *
 
 @app.route('/')
 @app.route('/', methods=['GET'])

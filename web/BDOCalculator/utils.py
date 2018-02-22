@@ -18,12 +18,16 @@ def get_proceso_name(proc_id):
     proc = Proceso.query.filter(Proceso.id == proc_id).first()
     return proc
 
+def get_receta(rec_id):
+    recet = Receta.query.filter(Receta.id == rec_id).first()
+    return recet
+
 def get_recetas_por_Objeto(obj_id):
     recetas = Receta.query.filter(Receta.resultado == obj_id).all()
     return recetas
 
 def get_ingredientes_por_receta(receta_id):
-    ingredientes = Ingrediente.query.filter(Ingrediente.receta == receta_id).all()
+    ingredientes = Ingrediente.query.filter(Ingrediente.id_receta == receta_id).all()
     return ingredientes
 
 def get_objetosprecio():

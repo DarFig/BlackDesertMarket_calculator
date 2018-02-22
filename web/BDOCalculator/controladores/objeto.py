@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 from BDOCalculator import app
-from flask import render_template
 
+from flask import render_template
+from flask import redirect
+from flask import url_for
 
 from ..utils import *
+
+
 
 @app.route('/<name>/<int:pk>/', methods=['GET'])
 def objdetails(name, pk):
