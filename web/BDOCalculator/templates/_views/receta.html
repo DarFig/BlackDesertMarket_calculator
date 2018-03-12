@@ -23,7 +23,13 @@
             <h6 class="col-3 panel-heading border border-dark">cantidad</h6>
             <h6 class="col-3 panel-heading border border-dark">comprar</h6>
           </div>
-
+          <div class="row">
+            {% for objeto in objetos %}
+            <h6 class="col-6 panel-heading border border-dark">{{objeto.nombre}}</h6>
+            <h6 class="col-3 panel-heading border border-dark">{{objeto.cantidad}}</h6>
+            <h6 class="col-3 panel-heading border border-dark">check[ ]</h6>
+            {% endfor %}
+          </div>
 
           <div class="row btn btn-block center-block">
             <div class="col-2">

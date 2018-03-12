@@ -10,5 +10,5 @@ from ..utils import *
 @app.route('/<int:pk>/', methods=['GET'])
 def recetadetails(pk):
     receta = get_receta(pk)
-    ingredientes = get_ingredientes_por_receta(pk)
-    return render_template('_views/receta.html', receta=receta, ingredientes=ingredientes)
+    objetos = get_objetos_por_receta(pk)
+    return render_template('_views/receta.html', receta=receta, objetos=objetos)

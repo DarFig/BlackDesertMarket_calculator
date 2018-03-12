@@ -30,6 +30,13 @@ def get_ingredientes_por_receta(receta_id):
     ingredientes = Ingrediente.query.filter(Ingrediente.id_receta == receta_id).all()
     return ingredientes
 
+def get_objetos_por_receta(receta_id):
+    ingredientes = get_ingredientes_por_receta(receta_id)
+    objetos = []
+    for i in ingredientes:
+        objetos.append(Objeto.query.join(Ingrediente).add_columns(Objeto.id, Objeto.nombre, Ingrediente.cantidad).filter(Objeto.id == i.id_objeto).first())
+    return objetos
+
 def get_objetosprecio():
     objetos = Objeto.query.join(Precio).add_columns(Objeto.id,Objeto.nombre, Precio.minimo, Precio.maximo, Precio.precio1, Precio.precio2, Precio.precio3, Precio.precio4).filter(Precio.id == Objeto.id_precio).all()
     return objetos
