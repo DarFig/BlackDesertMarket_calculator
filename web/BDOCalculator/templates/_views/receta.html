@@ -25,7 +25,7 @@
           </div>
           <div class="row">
             {% for objeto in objetos %}
-            <h6 class="col-6 panel-heading border border-dark">{{objeto.nombre}}</h6>
+            <h6 class="col-6 panel-heading border border-dark"> <a href="{{ url_for('objdetails',  name = objeto.nombre, pk=objeto.id) }}">{{objeto.nombre}}</a> </h6>
             <h6 class="col-3 panel-heading border border-dark">{{objeto.cantidad}}</h6>
             <h6 class="col-3 panel-heading border border-dark">check[ ]</h6>
             {% endfor %}
