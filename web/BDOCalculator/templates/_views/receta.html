@@ -29,7 +29,8 @@
             <h6 class="col-3 panel-heading border border-dark">{{objeto.cantidad}}</h6>
             <h6 class="col-3 panel-heading border border-dark">
             <div class=" form-group">
-									{{ loCompramosForm.comprar(class="form-control", id="loCompramos_comprar",  type="checkbox") }}
+	
+                  <input name="{{ objeto.id }}" type="checkbox" >
             </div>
             </h6>
             {% endfor %}
