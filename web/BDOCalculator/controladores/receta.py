@@ -30,7 +30,7 @@ def recetadetails(pk):
 @app.route('/receta/<int:pk>/', methods=['POST'])
 def recetacompra(pk):
     objetos = get_objetos_por_receta(pk)
-    precios_producto = get_precio(get_object(get_receta(pk).resultado)
+    precios_producto = get_precio(get_object(get_receta(pk).resultado))
     formulario = request.form
     coste_max = 0
     coste_min = 0
