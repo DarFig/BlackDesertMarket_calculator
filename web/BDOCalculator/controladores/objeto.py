@@ -30,7 +30,14 @@ def objdetails(name, pk):
     recetas = get_recetas_por_Objeto(objeto.id)
     return render_template('_views/objeto.html', objeto=objeto, precio=precio, recetas=recetas)
 
-@app.route('/newobject', methods=['GET'])
+@app.route('/newobject/', methods=['GET'])
 def newobject():
     newobjForm = NuevoObjetoForm()
     return render_template('_views/nuevoobjeto.html', newobjForm=newobjForm)
+
+@app.route('/<int:pk>/edit/', methods=['GET'])
+def editobject(pk):
+    objeto = get_object(pk)
+    precio = get_precio(objeto.id_precio)
+    newobjForm = NuevoObjetoForm()
+    return render_template('_views/nuevoobjeto.html', objeto=objeto, precio=precio, newobjForm=newobjForm)

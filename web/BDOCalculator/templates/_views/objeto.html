@@ -13,49 +13,39 @@
     <div class="col-md-6">
       <div class="Septima jumbotron ">
         <h4 class="panel-heading border border-dark">Precios</h4>
-        <form named="precios" class="" action="" method="post">
+
 
           <ul class="list-group border border-dark">
             <li class="list-group-item Novena">Máximo: <span class="Max">{{precio.maximo}}</span>
-              <div class="form-group">
 
-              </div>
             </li>
             <li class="list-group-item Novena">Mínimo: <span class="Min">{{precio.minimo}}</span>
-              <div class="form-group">
 
-              </div>
             </li>
             <li class="list-group-item Novena">Precio1: <span class="Medio">{{precio.precio1}}</span>
-              <div class="form-group">
 
-              </div>
             </li>
             <li class="list-group-item Novena">Precio2: <span class="Medio">{{precio.precio2}}</span>
-              <div class="form-group">
 
-              </div>
             </li>
             <li class="list-group-item Novena">Precio3: <span class="Medio">{{precio.precio3}}</span>
-              <div class="form-group">
 
-              </div>
             </li>
             <li class="list-group-item Novena">Precio4: <span class="Medio">{{precio.precio4}}</span>
-              <div class="form-group">
 
-              </div>
             </li>
           </ul>
 
 
           <div class="row btn btn-block center-block">
             <div class="col-2">
+              <a href="{{ url_for('editobject', pk=objeto.id) }}">
                 <button id="actualizaprecio" class="btn btn-dark" type="submit" name="actualizaprecio">Actualizar</button>
+              </a>
             </div>
 
           </div>
-        </form>
+      
       </div>
     </div>
 
