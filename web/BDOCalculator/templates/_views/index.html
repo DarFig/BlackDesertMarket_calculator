@@ -31,13 +31,15 @@ Index | {{ super() }}
     <div class="col-4 Letter badge badge-dark">
       <h2>Lista Objetos</h2>
     </div>
-    <form named="recetas" class="" action="" method="post">
-      <div class="col-6 btn btn-block center-block">
-        <div class="col-2">
-            <button id="nuevaReceta" class="btn btn-dark" type="submit" name="nuevaReceta">Nuevo Objeto</button>
-        </div>
+
+    <div class="col-3 btn btn-block center-block">
+      <div class="col-2">
+        <a href="{{ url_for('newobject') }}">
+          <button id="nuevaReceta" class="btn btn-dark" type="submit" name="nuevaReceta">Nuevo Objeto</button>
+        </a>
       </div>
-    </form>
+    </div>
+
   </div>
 
   <div class="Margen-alrededor1" data-spy="scroll" data-target="#list-example" data-offset="0">
@@ -46,6 +48,7 @@ Index | {{ super() }}
       <div class="p-2 border border-dark col-7"><a class=" Sexta list-group-item " href="{{ url_for('objdetails', name=objeto.nombre, pk=objeto.id) }}">{{objeto.nombre}} </a></div>
       <div class="Max p-2 border border-dark">Max: {{objeto.maximo}}</div>
       <div class="Min p-2 border border-dark">Min: {{objeto.minimo}}</div>
+      
     </div>
     {% endfor %}
   </div>
