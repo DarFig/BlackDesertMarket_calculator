@@ -4,7 +4,7 @@
 
 ### Base de Datos
 
-## Modelos de acceso
+#### Modelos de acceso
 
 - Ingrediente
 - Objeto
@@ -24,7 +24,7 @@
 
 ### Routes
 
-** GET **
+**GET**
 
 - /           -> _views/index           
 - /objeto/id/ -> _views/objeto          
@@ -32,6 +32,6 @@
 - /id/edit/   -> _views/nuevoobjeto     
 - /receta/id/ -> _views/receta          
 
-** POST **
+**POST**
 
 - /receta/id/ -> _views/receta          
