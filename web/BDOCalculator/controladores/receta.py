@@ -15,18 +15,13 @@ from ..utils import *
 from ..formulas import precio_profit
 
 
-#class LoCompramosForm(Form):
-#    comprar = BooleanField('comprar')
 
 @app.route('/receta/<int:pk>/', methods=['GET'])
-def recetadetails(pk):
+def recetadetails(pk, lista=[]):
     receta = get_receta(pk)
     objetos = get_objetos_por_receta(pk)
-    #formulario = {}
-    #for i in objetos:
-        #formulario[i.id] = LoCompramosForm()
-        #print formulario[i.id]
-    return render_template('_views/receta.html', receta=receta, objetos=objetos)
+
+    return render_template('_views/receta.html', receta=receta, objetos=objetos, listaDlistaPrecioGanancia=lista)
 
 @app.route('/receta/<int:pk>/', methods=['POST'])
 def recetacompra(pk):
@@ -39,23 +34,34 @@ def recetacompra(pk):
     coste_2 = 0
     coste_3 = 0
     coste_4 = 0
+    print(objetos)
     for key, value  in formulario.items():
         if value == "on" :
             precio = get_precio(key) #precios del objeto
-            coste_max += precio.maximo
-            coste_min += precio.minimo
-            coste_1 += precio.precio1
-            coste_2 += precio.precio2
-            coste_3 += precio.precio3
-            coste_4 += precio.precio4
+            coste_max += precio.maximo * get_cantidad_por_objeto_receta(key, pk)
+            coste_min += precio.minimo * get_cantidad_por_objeto_receta(key, pk)
+            coste_1 += precio.precio1 * get_cantidad_por_objeto_receta(key, pk)
+            coste_2 += precio.precio2 * get_cantidad_por_objeto_receta(key, pk)
+            coste_3 += precio.precio3 * get_cantidad_por_objeto_receta(key, pk)
+            coste_4 += precio.precio4 * get_cantidad_por_objeto_receta(key, pk)
     #toman lista de duplas precio : profit para todos los precios de venta
-    precioGanancia_Costemax = precio_profit(coste_max, precios_producto)
-    precioGanancia_Costemin =  precio_profit(coste_min, precios_producto)
-    precioGanancia_Coste1 =  precio_profit(coste_1, precios_producto)
-    precioGanancia_Coste2 =  precio_profit(coste_2, precios_producto)
-    precioGanancia_Coste3 =  precio_profit(coste_3, precios_producto)
-    precioGanancia_Coste4 =  precio_profit(coste_4, precios_producto)
-    #a partir de aqui no funcional, solo para la prueba
+    listaDlistaPrecioGanancia = []
+    #precioGanancia_Costemax =
+    listaDlistaPrecioGanancia.append(precio_profit(coste_max, precios_producto))
+    #precioGanancia_Costemin =
+    listaDlistaPrecioGanancia.append(precio_profit(coste_min, precios_producto))
+    #precioGanancia_Coste1 =
+    listaDlistaPrecioGanancia.append(precio_profit(coste_1, precios_producto))
+    #precioGanancia_Coste2 =
+    listaDlistaPrecioGanancia.append(precio_profit(coste_2, precios_producto))
+    #precioGanancia_Coste3 =
+    listaDlistaPrecioGanancia.append(precio_profit(coste_3, precios_producto))
+    #precioGanancia_Coste4 =
+    listaDlistaPrecioGanancia.append(precio_profit(coste_4, precios_producto))
+
+
+
+    #a partir de aqui no funciona, solo para la prueba
     receta = get_receta(pk)
-    response = make_response(redirect(url_for('recetadetails', pk=pk)))
+    response = make_response(redirect(url_for('recetadetails', pk=pk, lista=listaDlistaPrecioGanancia)))
     return response
