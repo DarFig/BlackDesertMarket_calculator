@@ -12,7 +12,8 @@ from wtforms import Form, BooleanField, validators
 from wtforms.validators import *
 
 from ..utils import *
-from ..formulas import is_profit
+from ..formulas import precio_profit
+
 
 #class LoCompramosForm(Form):
 #    comprar = BooleanField('comprar')
@@ -38,25 +39,23 @@ def recetacompra(pk):
     coste_2 = 0
     coste_3 = 0
     coste_4 = 0
-    for k, v  in formulario.items():
-        if v == "on" :
-            precio = get_precio(k) #precios del objeto
+    for key, value  in formulario.items():
+        if value == "on" :
+            precio = get_precio(key) #precios del objeto
             coste_max += precio.maximo
             coste_min += precio.minimo
             coste_1 += precio.precio1
             coste_2 += precio.precio2
             coste_3 += precio.precio3
             coste_4 += precio.precio4
-    #toman el valor de si es profit
-    coste_max = is_profit(coste_max, precios_producto)
-    coste_min =  is_profit(coste_min, precios_producto)
-    coste_1 =  is_profit(coste_1, precios_producto)
-    coste_2 =  is_profit(coste_2, precios_producto)
-    coste_3 =  is_profit(coste_3, precios_producto)
-    coste_4 =  is_profit(coste_4, precios_producto)
-
-    #a partir de aqui no funcional, solo para la prueba|||
-    #hay que devolver los que son profit
+    #toman lista de duplas precio : profit para todos los precios de venta
+    precioGanancia_Costemax = precio_profit(coste_max, precios_producto)
+    precioGanancia_Costemin =  precio_profit(coste_min, precios_producto)
+    precioGanancia_Coste1 =  precio_profit(coste_1, precios_producto)
+    precioGanancia_Coste2 =  precio_profit(coste_2, precios_producto)
+    precioGanancia_Coste3 =  precio_profit(coste_3, precios_producto)
+    precioGanancia_Coste4 =  precio_profit(coste_4, precios_producto)
+    #a partir de aqui no funcional, solo para la prueba
     receta = get_receta(pk)
     response = make_response(redirect(url_for('recetadetails', pk=pk)))
     return response
