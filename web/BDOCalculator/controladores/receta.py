@@ -34,10 +34,9 @@ def recetacompra(pk):
     coste_2 = 0
     coste_3 = 0
     coste_4 = 0
-    print(objetos)
     for key, value  in formulario.items():
         if value == "on" :
-            precio = get_precio(key) #precios del objeto
+            precio = get_precio(key) #precios del ingrediente
             coste_max += precio.maximo * get_cantidad_por_objeto_receta(key, pk)
             coste_min += precio.minimo * get_cantidad_por_objeto_receta(key, pk)
             coste_1 += precio.precio1 * get_cantidad_por_objeto_receta(key, pk)
@@ -46,17 +45,11 @@ def recetacompra(pk):
             coste_4 += precio.precio4 * get_cantidad_por_objeto_receta(key, pk)
     #toman lista de duplas precio : profit para todos los precios de venta
     listaDlistaPrecioGanancia = []
-    #precioGanancia_Costemax =
     listaDlistaPrecioGanancia.append(precio_profit(coste_max, precios_producto))
-    #precioGanancia_Costemin =
     listaDlistaPrecioGanancia.append(precio_profit(coste_min, precios_producto))
-    #precioGanancia_Coste1 =
     listaDlistaPrecioGanancia.append(precio_profit(coste_1, precios_producto))
-    #precioGanancia_Coste2 =
     listaDlistaPrecioGanancia.append(precio_profit(coste_2, precios_producto))
-    #precioGanancia_Coste3 =
     listaDlistaPrecioGanancia.append(precio_profit(coste_3, precios_producto))
-    #precioGanancia_Coste4 =
     listaDlistaPrecioGanancia.append(precio_profit(coste_4, precios_producto))
 
 
