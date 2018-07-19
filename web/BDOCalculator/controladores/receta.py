@@ -30,7 +30,7 @@ def recetadetails(pk):
 @app.route('/receta/<int:pk>/', methods=['POST'])
 def recetacompra(pk):
     objetos = get_objetos_por_receta(pk)
-    precios_producto = get_precio(get_object(get_receta(pk).resultado))
+    precios_producto = get_precio(get_object(get_receta(pk).resultado).id_precio)
     formulario = request.form
     coste_max = 0
     coste_min = 0
@@ -38,14 +38,15 @@ def recetacompra(pk):
     coste_2 = 0
     coste_3 = 0
     coste_4 = 0
-    for i in formulario:
-        precio = get_precio(i) #precios del objetos
-        coste_max += precio.maximo
-        coste_min += precio.minimo
-        coste_1 += precio.precio1
-        coste_2 += precio.precio2
-        coste_3 += precio.precio3
-        coste_4 += precio.precio4
+    for k, v  in formulario.items():
+        if v == "on" :
+            precio = get_precio(k) #precios del objeto
+            coste_max += precio.maximo
+            coste_min += precio.minimo
+            coste_1 += precio.precio1
+            coste_2 += precio.precio2
+            coste_3 += precio.precio3
+            coste_4 += precio.precio4
     #toman el valor de si es profit
     coste_max = is_profit(coste_max, precios_producto)
     coste_min =  is_profit(coste_min, precios_producto)
