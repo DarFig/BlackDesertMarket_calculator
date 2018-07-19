@@ -13,7 +13,7 @@ from wtforms.validators import *
 
 from ..utils import *
 from ..formulas import precio_profit
-
+from ..formulas import precio_profit_value
 
 
 @app.route('/receta/<int:pk>/', methods=['GET'])
@@ -51,8 +51,14 @@ def recetacompra(pk):
     listaDlistaPrecioGanancia.append(precio_profit(coste_2, precios_producto))
     listaDlistaPrecioGanancia.append(precio_profit(coste_3, precios_producto))
     listaDlistaPrecioGanancia.append(precio_profit(coste_4, precios_producto))
-
-
+    #con precio_profit_value
+    listaDlistaPrecioGanancia = []
+    listaDlistaPrecioGanancia.append(precio_profit_value(coste_max, precios_producto))
+    listaDlistaPrecioGanancia.append(precio_profit_value(coste_min, precios_producto))
+    listaDlistaPrecioGanancia.append(precio_profit_value(coste_1, precios_producto))
+    listaDlistaPrecioGanancia.append(precio_profit_value(coste_2, precios_producto))
+    listaDlistaPrecioGanancia.append(precio_profit_value(coste_3, precios_producto))
+    listaDlistaPrecioGanancia.append(precio_profit_value(coste_4, precios_producto))
 
     #a partir de aqui no funciona, solo para la prueba
     receta = get_receta(pk)
