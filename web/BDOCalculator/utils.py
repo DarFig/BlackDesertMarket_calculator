@@ -44,3 +44,22 @@ def get_cantidad_por_objeto_receta(objeto_id, receta_id):
 def get_objetosprecio():
     objetos = Objeto.query.join(Precio).add_columns(Objeto.id,Objeto.nombre, Precio.minimo, Precio.maximo, Precio.precio1, Precio.precio2, Precio.precio3, Precio.precio4).filter(Precio.id == Objeto.id_precio).all()
     return objetos
+
+def actualizar_precios(precio_id, maximo, minimo, prec1, prec2, prec3, prec4):
+    precio = get_precio(precio_id)
+    db.session.delete(precio)
+    precio.maximo = maximo
+    precio.minimo = minimo
+    precio.precio1 = prec1
+    precio.precio2 = prec2
+    precio.precio3 = prec3
+    precio.precio4 = prec4
+    db.session.add(precio)
+    db.session.commit()
+
+def actualizar_nombre_objeto(objeto_id, nombre):
+    objeto = get_object(objeto_id)
+    db.session.delete(objeto)
+    objeto.nombre = nombre
+    db.session.add(objeto)
+    db.session.commit()

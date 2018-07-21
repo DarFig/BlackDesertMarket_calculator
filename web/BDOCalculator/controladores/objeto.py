@@ -44,5 +44,10 @@ def editobject(pk):
         return render_template('_views/nuevoobjeto.html', objeto=objeto, precio=precio, newobjForm=newobjForm)
     else :
         newobjForm = NuevoObjetoForm(request.form)
+        objeto = get_object(pk)
+        actualizar_precios(objeto.id_precio, newobjForm.data['maximo'], newobjForm.data['minimo'], newobjForm.data['precio1'],  newobjForm.data['precio2'], newobjForm.data['precio3'], newobjForm.data['precio4'])
 
-        response = make_response(redirect(url_for('objdetails', objeto.nombre, objeto.id)))
+        if objeto.nombre and objeto.nombre != newobjForm.data['nombre'] :
+            actualizar_nombre_objeto(pk, newobjForm.data['nombre'])
+        response = make_response(redirect(url_for('objdetails', name=objeto.nombre, pk=objeto.id)))
+        return response

@@ -3,9 +3,8 @@
 ## vistas y rutas
 
 - [ ] funcionalidad nuevo objeto
-- [x] vista de actualizar objeto
-- [ ] funcionalidad editar/actualizar objeto
-- [ ] vista editar/actualizar objeto
+- [x] funcionalidad editar/actualizar objeto
+- [x] vista editar/actualizar objeto
 - [ ] funcionalidad nueva receta
 - [ ] vista nueva receta
 
