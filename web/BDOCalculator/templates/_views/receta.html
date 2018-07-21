@@ -29,7 +29,7 @@
             <h6 class="col-3 panel-heading border border-dark">{{objeto.cantidad}}</h6>
             <h6 class="col-3 panel-heading border border-dark">
             <div class=" form-group">
-	
+
                   <input name="{{ objeto.id }}" type="checkbox" >
             </div>
             </h6>
@@ -49,5 +49,22 @@
 
 
   </div>
+  {% if listaDlistaPrecioGanancia %}
+    <div class="row">
+      <div class="col-12">
+        <div class="Septima jumbotron">
+          <div class="row">
+            <h3 class="col-6 border border-dark">Resultados</h3>
+          </div>
+
+
+          <div class="row">
+            <h1>{{ listaDlistaPrecioGanancia[0][0] }} </h1>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  {% endif %}
 </div>
 {% endblock %}
