@@ -57,9 +57,55 @@
             <h3 class="col-6 border border-dark">Resultados</h3>
           </div>
 
+          <div class="row Medio">
+              <h3 class="col-12">Sin Value</h3>
+          </div>
 
+          <div class="row"><h4 class="col-12 Positivo"> Costes máximos</h4></div>
           <div class="row">
-            <h1>{{ listaDlistaPrecioGanancia[0][0] }} </h1>
+            <h6 class="col-6 panel-heading border border-dark">Vendiendo al precio máximo </h6>
+            <h6 class="col-3 panel-heading border border-dark">Precio Venta {{ "{:,.2f}".format(listaDlistaPrecioGanancia[0][0]["precioMax"]) }}</h6>
+            <h6 class="col-3 panel-heading border border-dark">Ganancia {{ "{:,.2f}".format(listaDlistaPrecioGanancia[0][0]["profit"]) }}</h6>
+
+            <h6 class="col-6 panel-heading border border-dark">Vendiendo al precio mínimo </h6>
+            <h6 class="col-3 panel-heading border border-dark">Precio Venta {{ "{:,.2f}".format(listaDlistaPrecioGanancia[0][1]["precioMin"]) }}</h6>
+            <h6 class="col-3 panel-heading border border-dark">Ganancia {{ "{:,.2f}".format(listaDlistaPrecioGanancia[0][1]["profit"]) }}</h6>
+          </div>
+
+          <div class="row"><h4 class="col-12 Positivo"> Costes mínimos</h4></div>
+            <div class="row">
+            <h6 class="col-6 panel-heading border border-dark">Vendiendo al precio máximo </h6>
+            <h6 class="col-3 panel-heading border border-dark">Precio Venta {{ "{:,.2f}".format(listaDlistaPrecioGanancia[1][0]["precioMax"]) }}</h6>
+            <h6 class="col-3 panel-heading border border-dark">Ganancia {{ listaDlistaPrecioGanancia[1][0]["profit"] }}</h6>
+
+            <h6 class="col-6 panel-heading border border-dark">Vendiendo al precio mínimo </h6>
+            <h6 class="col-3 panel-heading border border-dark">Precio Venta {{ "{:,.2f}".format(listaDlistaPrecioGanancia[1][1]["precioMin"]) }}</h6>
+            <h6 class="col-3 panel-heading border border-dark">Ganancia {{ "{:,.2f}".format(listaDlistaPrecioGanancia[1][1]["profit"]) }}</h6>
+          </div>
+
+          <div class="row Medio">
+              <h3 class="col-12">Con Value</h3>
+          </div>
+
+          <div class="row"><h4 class="col-12 Positivo"> Costes máximos</h4></div>
+          <div class="row">
+            <h6 class="col-6 panel-heading border border-dark">Vendiendo al precio máximo </h6>
+            <h6 class="col-3 panel-heading border border-dark">Precio Venta {{ "{:,.2f}".format(listaDlistaPrecioGanancia[2][0]["precioMax"]) }}</h6>
+            <h6 class="col-3 panel-heading border border-dark">Ganancia {{ "{:,.2f}".format(listaDlistaPrecioGanancia[2][0]["profit"]) }}</h6>
+
+            <h6 class="col-6 panel-heading border border-dark">Vendiendo al precio mínimo </h6>
+            <h6 class="col-3 panel-heading border border-dark">Precio Venta {{ "{:,.2f}".format(listaDlistaPrecioGanancia[2][1]["precioMin"]) }}</h6>
+            <h6 class="col-3 panel-heading border border-dark">Ganancia {{ "{:,.2f}".format(listaDlistaPrecioGanancia[2][1]["profit"]) }}</h6>
+          </div>
+          <div class="row"><h4 class="col-12 Positivo"> Costes mínimos</h4></div>
+          <div class="row">
+            <h6 class="col-6 panel-heading border border-dark">Vendiendo al precio máximo </h6>
+            <h6 class="col-3 panel-heading border border-dark">Precio Venta {{ "{:,.2f}".format(listaDlistaPrecioGanancia[3][0]["precioMax"]) }}</h6>
+            <h6 class="col-3 panel-heading border border-dark">Ganancia {{ "{:,.2f}".format(listaDlistaPrecioGanancia[3][0]["profit"]) }}</h6>
+
+            <h6 class="col-6 panel-heading border border-dark">Vendiendo al precio mínimo </h6>
+            <h6 class="col-3 panel-heading border border-dark">Precio Venta {{ "{:,.2f}".format(listaDlistaPrecioGanancia[3][1]["precioMin"]) }}</h6>
+            <h6 class="col-3 panel-heading border border-dark">Ganancia {{ "{:,.2f}".format(listaDlistaPrecioGanancia[3][1]["profit"]) }}</h6>
           </div>
 
         </div>
