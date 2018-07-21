@@ -35,9 +35,14 @@ def newobject():
     newobjForm = NuevoObjetoForm()
     return render_template('_views/nuevoobjeto.html', newobjForm=newobjForm)
 
-@app.route('/<int:pk>/edit/', methods=['GET'])
+@app.route('/<int:pk>/edit/', methods=['GET', 'POST'])
 def editobject(pk):
-    objeto = get_object(pk)
-    precio = get_precio(objeto.id_precio)
-    newobjForm = NuevoObjetoForm()
-    return render_template('_views/nuevoobjeto.html', objeto=objeto, precio=precio, newobjForm=newobjForm)
+    if request.method == 'GET' :
+        objeto = get_object(pk)
+        precio = get_precio(objeto.id_precio)
+        newobjForm = NuevoObjetoForm()
+        return render_template('_views/nuevoobjeto.html', objeto=objeto, precio=precio, newobjForm=newobjForm)
+    else :
+        newobjForm = NuevoObjetoForm(request.form)
+
+        response = make_response(redirect(url_for('objdetails', objeto.nombre, objeto.id)))
