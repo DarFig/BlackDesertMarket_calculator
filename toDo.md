@@ -7,7 +7,8 @@
 - [x] vista editar/actualizar objeto
 - [ ] funcionalidad nueva receta
 - [ ] vista nueva receta
-
+- [ ] eliminar objeto
+- [ ] eliminar receta
 
 ## otros
 
