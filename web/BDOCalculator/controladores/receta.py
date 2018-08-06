@@ -19,7 +19,9 @@ from ..formulas import precio_profit_value
 @app.route('/receta/<int:pk>/', methods=['GET'])
 def recetadetails(pk):
     receta = get_receta(pk)
-    objetos = get_objetos_por_receta(pk)
+    objetos = []
+    if receta :
+        objetos = get_objetos_por_receta(pk)
     lista = []
     return render_template('_views/receta.html', receta=receta, objetos=objetos, listaDlistaPrecioGanancia=lista)
 

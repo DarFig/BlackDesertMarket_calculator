@@ -32,8 +32,23 @@ def objdetails(name, pk):
 
 @app.route('/newobject/', methods=['GET'])
 def newobject():
-    newobjForm = NuevoObjetoForm()
-    return render_template('_views/nuevoobjeto.html', newobjForm=newobjForm)
+    newobjForm = NuevoObjetoForm()    
+    precio = Precio()
+    precio.maximo = 0
+    precio.minimo = 0
+    precio.precio1 = 0
+    precio.precio2 = 0
+    precio.precio3 = 0
+    precio.precio4 = 0
+    db.session.add(precio)
+    db.session.commit()
+    objeto = Objeto()
+    objeto.nombre = "newobject"
+    objeto.id_precio = precio.id
+    db.session.add(objeto)
+    db.session.commit()
+    return render_template('_views/nuevoobjeto.html', objeto=objeto, precio=precio, newobjForm=newobjForm)
+    #return make_response(redirect(url_for(ed)))
 
 @app.route('/<int:pk>/edit/', methods=['GET', 'POST'])
 def editobject(pk):
