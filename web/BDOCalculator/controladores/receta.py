@@ -48,3 +48,7 @@ def recetacompra(pk):
     listaDlistaPrecioGanancia.append(precio_profit_value(coste_min, precios_producto))
 
     return render_template('_views/receta.html', receta=receta, objetos=objetos, listaDlistaPrecioGanancia=listaDlistaPrecioGanancia)
+
+@app.route('/newrecipe/', methods=['GET'])
+def newrecipe():
+    return 0
