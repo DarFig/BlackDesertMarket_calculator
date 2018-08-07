@@ -45,6 +45,10 @@ def get_objetosprecio():
     objetos = Objeto.query.join(Precio).add_columns(Objeto.id,Objeto.nombre, Precio.minimo, Precio.maximo, Precio.precio1, Precio.precio2, Precio.precio3, Precio.precio4).filter(Precio.id == Objeto.id_precio).all()
     return objetos
 
+def get_objetos():
+    objetos = Objeto.query.order_by(Objeto.nombre.asc())
+    return objetos
+
 def actualizar_precios(precio_id, maximo, minimo, prec1, prec2, prec3, prec4):
     precio = get_precio(precio_id)
     db.session.delete(precio)

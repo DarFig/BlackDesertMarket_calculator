@@ -15,6 +15,13 @@ from ..utils import *
 from ..formulas import precio_profit
 from ..formulas import precio_profit_value
 
+from wtforms import Form, StringField, IntegerField,validators
+
+class NuevaRecetaForm(Form):
+    ingrediente1 = IntegerField('ingrediente1')
+    ingrediente2 = IntegerField('ingrediente2')
+    ingrediente3 = IntegerField('ingrediente3')
+    ingrediente4 = IntegerField('ingrediente4')
 
 @app.route('/receta/<int:pk>/', methods=['GET'])
 def recetadetails(pk):
@@ -49,6 +56,8 @@ def recetacompra(pk):
 
     return render_template('_views/receta.html', receta=receta, objetos=objetos, listaDlistaPrecioGanancia=listaDlistaPrecioGanancia)
 
-@app.route('/newrecipe/', methods=['GET'])
-def newrecipe():
-    return 0
+@app.route('/newrecipe/<int:resultID>/', methods=['GET'])
+def newrecipe(resultID):
+    newrectForm = NuevaRecetaForm()
+    objetos = get_objetos()
+    return render_template('_views/nuevareceta.html', objetos=objetos, newrectForm=newrectForm)
