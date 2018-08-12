@@ -5,8 +5,8 @@
 - [x] funcionalidad nuevo objeto
 - [x] funcionalidad editar/actualizar objeto
 - [x] vista editar/actualizar objeto
-- [ ] funcionalidad nueva receta
-- [ ] vista nueva receta
+- [x] funcionalidad nueva receta
+- [x] vista nueva receta, falta la nota
 - [ ] eliminar objeto
 - [ ] eliminar receta
 
