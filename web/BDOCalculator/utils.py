@@ -18,6 +18,10 @@ def get_proceso_name(proc_id):
     proc = Proceso.query.filter(Proceso.id == proc_id).first()
     return proc
 
+def get_proceso_por_nombre(proc_nombre):
+    proceso = Proceso.query.filter(Proceso.nombre == proc_nombre).first()
+    return proceso
+
 def get_receta(rec_id):
     recet = Receta.query.filter(Receta.id == rec_id).first()
     return recet
@@ -34,7 +38,7 @@ def get_objetos_por_receta(receta_id):
     ingredientes = get_ingredientes_por_receta(receta_id)
     objetos = []
     for i in ingredientes:
-        objetos.append(Objeto.query.join(Ingrediente).add_columns(Objeto.id, Objeto.nombre, Ingrediente.cantidad).filter(Objeto.id == i.id_objeto).first())
+        objetos.append(Objeto.query.join(Ingrediente).add_columns(Objeto.id, Objeto.nombre, Ingrediente.cantidad).filter(Objeto.id == i.id_objeto, Ingrediente.cantidad == i.cantidad).first())
     return objetos
 
 def get_cantidad_por_objeto_receta(objeto_id, receta_id):
@@ -48,6 +52,10 @@ def get_objetosprecio():
 def get_objetos():
     objetos = Objeto.query.order_by(Objeto.nombre.asc())
     return objetos
+
+def get_procesos():
+    procesos = Proceso.query.order_by(Proceso.nombre.asc())
+    return procesos
 
 def actualizar_precios(precio_id, maximo, minimo, prec1, prec2, prec3, prec4):
     precio = get_precio(precio_id)
