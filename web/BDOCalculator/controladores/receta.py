@@ -116,6 +116,12 @@ def delRecipe(recetaID, resultID):
     response = make_response(redirect(url_for('objdetails', name=objeto.nombre, pk=objeto.id)))
 
     receta = get_receta(recetaID)
+
+    ingredientes = get_ingredientes_por_receta(receta.id)
+    for ingrediente in ingredientes :
+        db.session.delete(ingrediente)
+        db.session.commit()
+        
     db.session.delete(receta)
     db.session.commit()
 

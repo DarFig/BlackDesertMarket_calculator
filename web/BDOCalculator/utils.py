@@ -30,8 +30,16 @@ def get_recetas_por_Objeto(obj_id):
     recetas = Receta.query.filter(Receta.resultado == obj_id).all()
     return recetas
 
+def get_recetas_por_Ingrediente(receta_id):
+    recetas = Receta.query.filter(Receta.id == receta_id).all()
+    return recetas
+
 def get_ingredientes_por_receta(receta_id):
     ingredientes = Ingrediente.query.filter(Ingrediente.id_receta == receta_id).all()
+    return ingredientes
+
+def get_ingredientes_por_objeto(obj_id):
+    ingredientes = Ingrediente.query.filter(Ingrediente.id_objeto == obj_id).all()
     return ingredientes
 
 def get_objetos_por_receta(receta_id):

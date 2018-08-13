@@ -48,7 +48,7 @@ def newobject():
     db.session.add(objeto)
     db.session.commit()
     return render_template('_views/nuevoobjeto.html', objeto=objeto, precio=precio, newobjForm=newobjForm)
-    #return make_response(redirect(url_for(ed)))
+
 
 @app.route('/<int:pk>/edit/', methods=['GET', 'POST'])
 def editobject(pk):
@@ -66,10 +66,38 @@ def editobject(pk):
             actualizar_nombre_objeto(pk, newobjForm.data['nombre'])
         response = make_response(redirect(url_for('objdetails', name=objeto.nombre, pk=objeto.id)))
         return response
+
 @app.route('/deleteObj/<int:pk>/', methods=['GET'])
 def delobject(pk):
     response = make_response(redirect(url_for('index')))
     objeto = get_object(pk)
-    db.session.delete(objeto)
+    precio = get_precio(objeto.id_precio)
+
+    #borrar recetas donde esta el objeto
+    ingredientes = get_ingredientes_por_objeto(objeto.id)
+    for ingrediente in ingredientes :
+        recetas = get_recetas_por_Ingrediente(ingrediente.id_receta)
+        for receta in recetas :
+            db.session.delete(receta)
+            db.session.commit()
+        #db.session.delete(ingrediente)#se borra en cascada
+        #db.session.commit()
+
+
+    #borrar recetas del objeto
+    recetas = get_recetas_por_Objeto(objeto.id)
+    for receta in recetas :
+        ingredientes = get_ingredientes_por_receta(receta.id)
+        for ingrediente in ingredientes :
+            db.session.delete(ingrediente)
+            db.session.commit()
+        print(receta.id)
+        db.session.delete(receta)
+        db.session.commit()
+
+    db.session.delete(precio)
     db.session.commit()
+
+    #db.session.delete(objeto)#se elimina en cascada con su precio
+    #db.session.commit()
     return response
