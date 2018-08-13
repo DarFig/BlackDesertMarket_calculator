@@ -109,3 +109,14 @@ def newrecipe(resultID):
             db.session.commit()
         response = make_response(redirect(url_for('recetadetails', pk=receta.id)))
         return response
+
+@app.route('/deleteReceta/<int:recetaID>/<int:resultID>/', methods=['GET'])
+def delRecipe(recetaID, resultID):
+    objeto = get_object(resultID)
+    response = make_response(redirect(url_for('objdetails', name=objeto.nombre, pk=objeto.id)))
+
+    receta = get_receta(recetaID)
+    db.session.delete(receta)
+    db.session.commit()
+
+    return response

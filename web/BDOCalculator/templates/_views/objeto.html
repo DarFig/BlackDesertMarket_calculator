@@ -51,26 +51,24 @@
 
     <div class="col-md-6">
       <div class="Septima jumbotron">
-        <!--<div class="row">-->
           <h4 class="panel-heading border border-dark">Recetas</h4>
-          <!--<h4 class="col-6 panel-heading border border-dark">Value Pack</h4>
-          -->
-        <!--</div>-->
-        <!--
-        <div class="row">
-          <h4 class="col-6 panel-heading "></h4>
 
-          <h6 class="col-3 panel-heading border border-dark">Si</h6>
-          <h6 class="col-3 panel-heading border border-dark">No</h6>
-        </div>
-        -->
 
         <form named="recetas" class="" action="" method="post">
           <ul class="list-group border border-dark">
             {% for receta in recetas %}
-            <li class="list-group-item Novena">Receta: <a class="Medio" href="{{ url_for('recetadetails',  pk=receta.id) }}">ID: {{receta.id}}</a>
+            <div class="row">
+              <div class="col-9">
+                <li class="list-group-item Novena">Receta: <a class="Medio" href="{{ url_for('recetadetails',  pk=receta.id) }}">ID: {{receta.id}}</a></li>
+              </div>
+              <div class="col-2  p-2 ">
+                <a  class="btn btn-danger" href="{{ url_for('delRecipe', recetaID=receta.id, resultID=objeto.id) }}">
+                  <span>X</span>
+                </a>
+                </div>
+            </div>
 
-            </li>
+
             {% endfor %}
           </ul>
 

@@ -7,10 +7,11 @@
 - [x] vista editar/actualizar objeto
 - [x] funcionalidad nueva receta
 - [x] vista nueva receta, falta la nota
-- [ ] eliminar objeto
-- [ ] eliminar receta
+- [x] eliminar objeto
+- [x] eliminar receta
 
 ## otros
 
 - [x] revisar estado y actualizar pendientes
 - [x] terminar formulas
+- [ ] búsqueda
