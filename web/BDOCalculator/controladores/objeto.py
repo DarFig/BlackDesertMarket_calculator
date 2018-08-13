@@ -32,7 +32,7 @@ def objdetails(name, pk):
 
 @app.route('/newobject/', methods=['GET'])
 def newobject():
-    newobjForm = NuevoObjetoForm()    
+    newobjForm = NuevoObjetoForm()
     precio = Precio()
     precio.maximo = 0
     precio.minimo = 0
@@ -66,3 +66,10 @@ def editobject(pk):
             actualizar_nombre_objeto(pk, newobjForm.data['nombre'])
         response = make_response(redirect(url_for('objdetails', name=objeto.nombre, pk=objeto.id)))
         return response
+@app.route('/deleteObj/<int:pk>/', methods=['GET'])
+def delobject(pk):
+    response = make_response(redirect(url_for('index')))
+    objeto = get_object(pk)
+    db.session.delete(objeto)
+    db.session.commit()
+    return response

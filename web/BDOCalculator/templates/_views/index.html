@@ -46,9 +46,13 @@ Index | {{ super() }}
     {% for objeto in objetos %}
     <div class=" Sexta Margen-alrededor d-flex flex-row">
       <div class="p-2 border border-dark col-7"><a class=" Sexta list-group-item " href="{{ url_for('objdetails', name=objeto.nombre, pk=objeto.id) }}">{{objeto.nombre}} </a></div>
-      <div class="Max p-2 border border-dark">Max: {{objeto.maximo}}</div>
-      <div class="Min p-2 border border-dark">Min: {{objeto.minimo}}</div>
-      
+      <div class="Max p-2 border border-dark col-2" >Max: {{objeto.maximo}}</div>
+      <div class="Min p-2 border border-dark col-2">Min: {{objeto.minimo}}</div>
+      <div class="Min p-2 border border-dark col-1">
+        <a href="{{ url_for('delobject', pk=objeto.id) }}">
+          <button id="deleteObj" class="btn btn-danger" type="submit" name="borrarObjeto"> <span>X</span></button>
+        </a>
+      </div>
     </div>
     {% endfor %}
   </div>
