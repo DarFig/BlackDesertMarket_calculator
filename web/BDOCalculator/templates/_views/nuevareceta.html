@@ -4,20 +4,13 @@
 {{NuevaReceta}} | {{ super() }}
 {% endblock %}
 
-
 {% block content %}
-
 <div class="Cuarta container">
   <div class="row">
-
     <div class="col-md-8 container-fluid">
       <div class="Septima jumbotron ">
-
-
           <div class="container-fluid">
-
             <form class="form " method="post" action="{{ url_for('newrecipe', resultID=resultID) }}">
-
               <div class="row">
                   <div class="form-group col-md-10">
                     <span for="FormControlSelect1">Nuevo Ingrediente</span>
@@ -32,7 +25,6 @@
                     <span class=" ">Cantidad</span>{{ newrectForm.cantidad1(class="form-control", value=0, placeholder="0", type=text) }}
                   </div>
               </div>
-
               <div class="row">
                   <div class="form-group col-md-10">
                     <span for="FormControlSelect1">Nuevo Ingrediente</span>
@@ -47,7 +39,6 @@
                     <span class=" ">Cantidad</span>{{ newrectForm.cantidad2(class="form-control", value=0, placeholder="0", type=text) }}
                   </div>
               </div>
-
               <div class="row">
                   <div class="form-group col-md-10">
                     <span for="FormControlSelect1">Nuevo Ingrediente</span>
@@ -62,7 +53,6 @@
                     <span class=" ">Cantidad</span>{{ newrectForm.cantidad3(class="form-control", value=0, placeholder="0", type=text) }}
                   </div>
               </div>
-
               <div class="row">
                   <div class="form-group col-md-10">
                     <span for="FormControlSelect1">Nuevo Ingrediente</span>
@@ -87,8 +77,6 @@
                     </select>
                   </div>
               </div>
-
-
               <div class="row btn btn-block center-block">
                 <div class="col-3">
                   <button id="nuevaReceta" class="btn btn-dark" type="submit" name="nuevaReceta">Enviar</button>
@@ -96,10 +84,6 @@
               </div>
             </form>
           </div>
-
-
-
-
       </div>
     </div>
   </div>

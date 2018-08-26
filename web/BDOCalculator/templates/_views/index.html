@@ -6,7 +6,6 @@ Index | {{ super() }}
 
 {% block content %}
 <div class="container Cuarta ">
-
   <div class="row navbar Quinta rounded border border-dark">
     <div class="col-md-8">
       <h3 class="Letter">Leyenda</h3>
@@ -17,21 +16,15 @@ Index | {{ super() }}
             <input type="text" class="form-control" placeholder="busqueda" aria-describedby="basic-addon1">
           </div>
           <div class="form-group">
-
             <button type="submit" class="btn btn-dark">Buscar</button>
           </div>
-
       </form>
     </div>
-
-
   </div>
-
   <div class="row navbar rounded border border-dark">
     <div class="col-4 Letter badge badge-dark">
       <h2>Lista Objetos</h2>
     </div>
-
     <div class="col-3 btn btn-block center-block">
       <div class="col-2">
         <a href="{{ url_for('newobject') }}">
@@ -39,9 +32,7 @@ Index | {{ super() }}
         </a>
       </div>
     </div>
-
   </div>
-
   <div class="Margen-alrededor1" data-spy="scroll" data-target="#list-example" data-offset="0">
     {% for objeto in objetos %}
     <div class=" Sexta Margen-alrededor d-flex flex-row">
@@ -60,7 +51,4 @@ Index | {{ super() }}
     <h5>.</h5>
   </div>
 </div>
-
-
-
 {% endblock %}
