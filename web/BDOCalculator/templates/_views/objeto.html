@@ -1,30 +1,28 @@
 {% extends "_layouts/base.html" %}
-
 {% block title %}
 {{objeto.nombre}} | {{ super() }}
 {% endblock %}
-
 {% block content %}
 <div class="Cuarta container">
   <div class="row">
     <div class="col-md-6">
       <div class="Septima jumbotron ">
         <h4 class="panel-heading border border-dark">Precios</h4>
-          <ul class="list-group border border-dark">
-            <li class="list-group-item Novena">Máximo: <span class="Max">{{precio.maximo}}</span></li>
-            <li class="list-group-item Novena">Mínimo: <span class="Min">{{precio.minimo}}</span></li>
-            <li class="list-group-item Novena">Precio1: <span class="Medio">{{precio.precio1}}</span></li>
-            <li class="list-group-item Novena">Precio2: <span class="Medio">{{precio.precio2}}</span></li>
-            <li class="list-group-item Novena">Precio3: <span class="Medio">{{precio.precio3}}</span></li>
-            <li class="list-group-item Novena">Precio4: <span class="Medio">{{precio.precio4}}</span></li>
-          </ul>
-          <div class="row btn btn-block center-block">
-            <div class="col-2">
-              <a href="{{ url_for('editobject', pk=objeto.id) }}">
-                <button id="actualizaprecio" class="btn btn-dark" type="submit" name="actualizaprecio">Actualizar</button>
-              </a>
-            </div>
+        <ul class="list-group border border-dark">
+          <li class="list-group-item Novena">Máximo: <span class="Max">{{precio.maximo}}</span></li>
+          <li class="list-group-item Novena">Mínimo: <span class="Min">{{precio.minimo}}</span></li>
+          <li class="list-group-item Novena">Precio1: <span class="Medio">{{precio.precio1}}</span></li>
+          <li class="list-group-item Novena">Precio2: <span class="Medio">{{precio.precio2}}</span></li>
+          <li class="list-group-item Novena">Precio3: <span class="Medio">{{precio.precio3}}</span></li>
+          <li class="list-group-item Novena">Precio4: <span class="Medio">{{precio.precio4}}</span></li>
+        </ul>
+        <div class="row btn btn-block center-block">
+          <div class="col-2">
+            <a href="{{ url_for('editobject', pk=objeto.id) }}">
+              <button id="actualizaprecio" class="btn btn-dark" type="submit" name="actualizaprecio">Actualizar</button>
+            </a>
           </div>
+        </div>
       </div>
     </div>
     <div class="col-md-6">
@@ -38,10 +36,8 @@
                 <li class="list-group-item Novena">Receta: <a class="Medio" href="{{ url_for('recetadetails',  pk=receta.id) }}">ID: {{receta.id}}</a></li>
               </div>
               <div class="col-2  p-2 ">
-                <a  class="btn btn-danger" href="{{ url_for('delRecipe', recetaID=receta.id, resultID=objeto.id) }}">
-                  <span>X</span>
-                </a>
-                </div>
+                <a class="btn btn-danger" href="{{ url_for('delRecipe', recetaID=receta.id, resultID=objeto.id) }}"><span>X</span></a>
+              </div>
             </div>
             {% endfor %}
           </ul>

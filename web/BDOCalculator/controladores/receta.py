@@ -79,6 +79,7 @@ def newrecipe(resultID):
         db.session.add(receta)
         db.session.commit()
 
+        
         if newrectForm.data['ingrediente1'] != '------' :
             ingrediente1 = Ingrediente()
             ingrediente1.id_receta = receta.id
@@ -121,7 +122,7 @@ def delRecipe(recetaID, resultID):
     for ingrediente in ingredientes :
         db.session.delete(ingrediente)
         db.session.commit()
-        
+
     db.session.delete(receta)
     db.session.commit()
 

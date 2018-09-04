@@ -1,17 +1,13 @@
 {% extends "_layouts/base.html" %}
-
 {% block title %}
 {{receta.id}} | {{ super() }}
 {% endblock %}
-
 {% block content %}
 <div class="Cuarta container">
   <div class="row">
     <div class="col-12">
       <div class="Septima jumbotron">
-        <div class="row">
-          <h3 class="col-6 border border-dark">Ingredientes</h3>
-        </div>
+        <div class="row"><h3 class="col-6 border border-dark">Ingredientes</h3></div>
         <form named="recetas" action="{{ url_for('recetacompra', pk=receta.id) }}" method="POST">
           <div class="row">
             <h6 class="col-6 panel-heading border border-dark">Nombre</h6>
@@ -23,9 +19,7 @@
             <h6 class="col-6 panel-heading border border-dark"> <a href="{{ url_for('objdetails',  name = objeto.nombre, pk=objeto.id) }}">{{objeto.nombre}}</a> </h6>
             <h6 class="col-3 panel-heading border border-dark">{{objeto.cantidad}}</h6>
             <h6 class="col-3 panel-heading border border-dark">
-            <div class=" form-group">
-                  <input name="{{ objeto.id }}" type="checkbox" >
-            </div>
+              <div class=" form-group"><input name="{{ objeto.id }}" type="checkbox" ></div>
             </h6>
             {% endfor %}
           </div>
@@ -42,12 +36,8 @@
     <div class="row">
       <div class="col-12">
         <div class="Septima jumbotron">
-          <div class="row">
-            <h3 class="col-6 border border-dark">Resultados</h3>
-          </div>
-          <div class="row Medio">
-              <h3 class="col-12">Sin Value</h3>
-          </div>
+          <div class="row"><h3 class="col-6 border border-dark">Resultados</h3></div>
+          <div class="row Medio"><h3 class="col-12">Sin Value</h3></div>
           <div class="row"><h4 class="col-12 Positivo"> Costes máximos</h4></div>
           <div class="row">
             <h6 class="col-6 panel-heading border border-dark">Vendiendo al precio máximo </h6>
@@ -66,9 +56,7 @@
             <h6 class="col-3 panel-heading border border-dark">Precio Venta {{ "{:,.2f}".format(listaDlistaPrecioGanancia[1][1]["precioMin"]) }}</h6>
             <h6 class="col-3 panel-heading border border-dark">Ganancia {{ "{:,.2f}".format(listaDlistaPrecioGanancia[1][1]["profit"]) }}</h6>
           </div>
-          <div class="row Medio">
-              <h3 class="col-12">Con Value</h3>
-          </div>
+          <div class="row Medio"><h3 class="col-12">Con Value</h3></div>
           <div class="row"><h4 class="col-12 Positivo"> Costes máximos</h4></div>
           <div class="row">
             <h6 class="col-6 panel-heading border border-dark">Vendiendo al precio máximo </h6>

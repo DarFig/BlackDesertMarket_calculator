@@ -2,6 +2,7 @@
 
 from models import *
 
+#---
 def get_object_by_name(name):
     objt = Objeto.query.filter(Objeto.nombre == name).first()
     return objt
@@ -25,7 +26,9 @@ def get_proceso_por_nombre(proc_nombre):
 def get_receta(rec_id):
     recet = Receta.query.filter(Receta.id == rec_id).first()
     return recet
+#----
 
+#----
 def get_recetas_por_Objeto(obj_id):
     recetas = Receta.query.filter(Receta.resultado == obj_id).all()
     return recetas
@@ -48,7 +51,9 @@ def get_objetos_por_receta(receta_id):
     for i in ingredientes:
         objetos.append(Objeto.query.join(Ingrediente).add_columns(Objeto.id, Objeto.nombre, Ingrediente.cantidad).filter(Objeto.id == i.id_objeto, Ingrediente.cantidad == i.cantidad).first())
     return objetos
+#---
 
+#---
 def get_cantidad_por_objeto_receta(objeto_id, receta_id):
     ingrediente = Ingrediente.query.filter(Ingrediente.id_receta == receta_id, Ingrediente.id_objeto == objeto_id).first()
     return ingrediente.cantidad
@@ -65,6 +70,9 @@ def get_procesos():
     procesos = Proceso.query.order_by(Proceso.nombre.asc())
     return procesos
 
+#---
+
+#---
 def actualizar_precios(precio_id, maximo, minimo, prec1, prec2, prec3, prec4):
     precio = get_precio(precio_id)
     db.session.delete(precio)

@@ -1,15 +1,11 @@
 {% extends "_layouts/base.html" %}
-
 {% block title %}
 Index | {{ super() }}
 {% endblock %}
-
 {% block content %}
 <div class="container Cuarta ">
   <div class="row navbar Quinta rounded border border-dark">
-    <div class="col-md-8">
-      <h3 class="Letter">Leyenda</h3>
-    </div>
+    <div class="col-md-8"><h3 class="Letter">Leyenda</h3></div>
     <div class="col-md-4">
       <form class="navbar-form navbar-right row" name="busqueda" method="POST" action="">
           <div class="form-group">
@@ -27,8 +23,7 @@ Index | {{ super() }}
     </div>
     <div class="col-3 btn btn-block center-block">
       <div class="col-2">
-        <a href="{{ url_for('newobject') }}">
-          <button id="nuevaReceta" class="btn btn-dark" type="submit" name="nuevaReceta">Nuevo Objeto</button>
+        <a href="{{ url_for('newobject') }}"><button id="nuevaReceta" class="btn btn-dark" type="submit" name="nuevaReceta">Nuevo Objeto</button>
         </a>
       </div>
     </div>
@@ -40,8 +35,7 @@ Index | {{ super() }}
       <div class="Max p-2 border border-dark col-2" >Max: {{objeto.maximo}}</div>
       <div class="Min p-2 border border-dark col-2">Min: {{objeto.minimo}}</div>
       <div class="p-2 border border-dark col-1">
-        <a href="{{ url_for('delobject', pk=objeto.id) }}">
-          <button id="deleteObj" class="btn btn-danger" type="submit" name="borrarObjeto"> <span>X</span></button>
+        <a href="{{ url_for('delobject', pk=objeto.id) }}"><button id="deleteObj" class="btn btn-danger" type="submit" name="borrarObjeto"> <span>X</span></button>
         </a>
       </div>
     </div>
